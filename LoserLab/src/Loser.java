@@ -2,14 +2,14 @@
 
 
 public class Loser implements Comparable<Loser>{
-	private int startingWeight;
+	private int startWeight;
 	private String name;
 	private int currentWeight;
 	
 	// Constructor creates start weight
-	public Loser(String inName, int startWeight){
+	public Loser(String inName, int inStartWeight){
 		name = inName;
-		startingWeight = startWeight;
+		startWeight = inStartWeight;
 		currentWeight = startWeight;
 	}
 	
@@ -18,29 +18,29 @@ public class Loser implements Comparable<Loser>{
 	public String getName() {
 		return name;
 	}
+
+	public int getStartWeight() {
+		return startWeight;
+	}
 	
-	public int getTotalWeightLost(){
-		int totalLost = startingWeight - currentWeight;
+	public int getWeightDifference(){
+		int totalLost = startWeight - currentWeight;
 		return totalLost;
 	}
 
 	public int getCurrentWeight() {
 		return currentWeight;
 	}
-
-	public int getStartingWeight() {
-		return startingWeight;
-	}
 	
 	
 	// Current weight can't be < 100
 	
 	// weightLost must be positive
-	public void weightLost(int lost){
-		if (currentWeight - lost < 100){
+	public void setCurrentWeight(int inCurrentWeight){
+		if (inCurrentWeight < 100){
 			return;
 		}
-		currentWeight -= lost;
+		currentWeight = inCurrentWeight;
 	}
 	
 	// The Class is to be sorted
@@ -62,8 +62,8 @@ public class Loser implements Comparable<Loser>{
 	//  compareTo returns the difference between weight. Ordered from least to most lost, then by name
 	@Override
 	public int compareTo(Loser other){
-		int myWeightLost = this.startingWeight - this.currentWeight;
-		int otherWeightLost = other.startingWeight - other.currentWeight;
+		int myWeightLost = this.startWeight - this.currentWeight;
+		int otherWeightLost = other.startWeight - other.currentWeight;
 		
 		int difference = myWeightLost - otherWeightLost;
 		if (difference != 0){
@@ -77,9 +77,10 @@ public class Loser implements Comparable<Loser>{
 	
 	@Override
 	public String toString() {
-		return "Loser [startingWeight=" + startingWeight + ", name=" + name
+		return "Loser [startingWeight=" + startWeight + ", name=" + name
 				+ ", currentWeight=" + currentWeight + "]";
 	}
+
 
 	
 

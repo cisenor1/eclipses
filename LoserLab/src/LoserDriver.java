@@ -30,7 +30,7 @@ public class LoserDriver {
 		// Write a “for each” loop that reduces the weight of each loser by 2 pounds.
 		
 		for (Loser who : Losers){
-			who.weightLost(2);
+			who.setCurrentWeight(2);
 		}
 		
 		
@@ -47,20 +47,20 @@ public class LoserDriver {
 		int foundPosition = Losers.indexOf(finder);
 		Loser foundLoser = Losers.get(foundPosition);
 		
-		foundLoser.weightLost(49);
+		foundLoser.setCurrentWeight(120);
 		
 		
 		Loser finder2 = new Loser("Charles", 133);
 		int foundPosition2 = Losers.indexOf(finder2);
 		Loser foundLoser2 = Losers.get(foundPosition2);
 		
-		foundLoser2.weightLost(21);
+		foundLoser2.setCurrentWeight(121);
 		
 		Loser finder3 = new Loser("Anne", 133);
 		int foundPosition3 = Losers.indexOf(finder3);
 		Loser foundLoser3 = Losers.get(foundPosition3);
 		
-		foundLoser3.weightLost(21);
+		foundLoser3.setCurrentWeight(118);
 		
 		
 		
@@ -76,7 +76,7 @@ public class LoserDriver {
 		System.out.println("\nBefore the cut: ");
 		
 		for (Loser who : Losers){
-			System.out.println(who.getName() + " lost " + who.getTotalWeightLost());
+			System.out.println(who.getName() + " lost " + who.getWeightDifference());
 		}
 		
 		// Find the smallest loser. Use a counted loop to go through the list of losers. Remove them from the list, 
@@ -98,7 +98,7 @@ public class LoserDriver {
 		
 		System.out.println("\nAfter the cut: ");
 		for (Loser who : Losers){
-			System.out.println(who.getName() + " lost " + who.getTotalWeightLost());
+			System.out.println(who.getName() + " lost " + who.getWeightDifference());
 		}
 
 	}
