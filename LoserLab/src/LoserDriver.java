@@ -87,10 +87,18 @@ public class LoserDriver {
 		
 		
 		
-		Loser smallest = Collections.min(Losers);
+		Loser smallestLoser = Losers.get(0);
+		for (int i = 1; i < Losers.size(); i++) {
+		Loser nextLoser = Losers.get(i);
+		if (nextLoser.compareTo(smallestLoser) < 0) {
+		smallestLoser = nextLoser;
+		}
+
+
+		}
 		
-		System.out.println("\n" + smallest.getName() + " is going home.");
-		Losers.remove(smallest);
+		System.out.println("\n" + smallestLoser.getName() + " is the smallest Loser this round and is going home.");
+		Losers.remove(smallestLoser);
 		
 		
 		
