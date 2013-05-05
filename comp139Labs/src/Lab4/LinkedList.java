@@ -102,6 +102,7 @@ public class LinkedList<E> {
 			
 			
 			// set the current item to point at the new List.
+			
 			current = headOfList;
 			headOfList = headOfList.next;
 			
@@ -113,6 +114,8 @@ public class LinkedList<E> {
 		
 			
 		}
+		// set the last item as the head of the new list.
+		
 		headOfList.next  = newList;
 }
 
