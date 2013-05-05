@@ -93,16 +93,28 @@ public class LinkedList<E> {
 		}
 		
 		Node current = headOfList;
-		Node previous = current, active = null;
-		previous.next = null;
-		for (int i = 0; i < itemCount - 1; i++){
-			previous = current;
-			active = current.next;
-			current = current.next;
-			active.next = previous;
+		headOfList = headOfList.next;
+		Node newList = current;
+		newList.next = null;
+		
+		
+		for (int i = 0; i < itemCount - 2; i++){ // Have the loop stop at the 2nd last item
+			
+			
+			// set the current item to point at the new List.
+			current = headOfList;
+			headOfList = headOfList.next;
+			
+			// set newList to be the last on the new chain
+			
+			current.next = newList;
+			newList = current;
+			
+		
+			
 		}
-		headOfList = current;
-	}
+		headOfList.next  = newList;
+}
 
 	private class Node {
 		E thingToStore;
